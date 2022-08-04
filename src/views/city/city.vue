@@ -45,7 +45,6 @@ function cancelClick() {
 }
 
 // 2.tab的切换
-// const tabActive = ref()
 const tabActive = cityStore.tabActive
 
 // 3.获取Store数据

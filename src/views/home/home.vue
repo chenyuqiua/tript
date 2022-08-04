@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home" ref="homeRef">
     <home-nav-bar />
 
     <div class="search-bar" v-if="isShowSearchBar">
@@ -19,8 +19,13 @@
   </div>
 </template>
 
+<script>
+  export default {
+    name: "home"
+  }
+</script>
 <script setup>
-import { computed, watch } from 'vue';
+import { computed, onActivated, ref, watch } from 'vue';
 import useHomeStore from '@/stores/modules/home';
 import homeNavBar from './cpns/home-nav-bar.vue';
 import HomeSeachBox from './cpns/home-seach-box.vue';
@@ -37,7 +42,8 @@ homeStore.fetchCategories()
 homeStore.fetchHouseList()
 
 // 2.滚动到底部加载更多
-const { isReachBottom, scrollTop } = useScroll()
+const homeRef = ref()
+const { isReachBottom, scrollTop } = useScroll(homeRef)
 watch(isReachBottom, (newValue) => {
   if (newValue) {
     // 当网络请求有结果后再改为false
@@ -52,11 +58,23 @@ const isShowSearchBar = computed(() => {
   return scrollTop.value >= 518
 })
 
+// 4.跳转回home时, 保持原来的位置
+onActivated(() => {
+  homeRef.value?.scrollTo({
+    top: scrollTop.value
+  })
+})
+
 </script>
 
 <style lang="less" scoped>
 .home {
+  box-sizing: border-box;
+  // height: calc(100vh - 50px);
+  height: 100vh;
+  overflow-y: auto;
   background-color: #f7f7f7;
+
   .search-bar {
     position: fixed;
     z-index: 9;
