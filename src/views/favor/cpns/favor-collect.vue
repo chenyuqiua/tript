@@ -2,7 +2,7 @@
   <div class="collect">
     <van-tabs v-model:active="active" color="#ff9854">
       <van-tab title="房屋">
-        <favor-list-item :itemdate="itemDate"></favor-list-item>
+        <favor-list-item :itemdate="favorItem"></favor-list-item>
       </van-tab>
       <van-tab title="房东">
         <div class="no-data">
@@ -29,6 +29,7 @@
 
 <script setup>
 import useFavorStore from '@/stores/modules/favor';
+import { storeToRefs } from 'pinia';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import FavorListItem from './favor-list-item.vue';
@@ -36,7 +37,8 @@ import FavorListItem from './favor-list-item.vue';
 const active = ref(0)
 // 获取网络请求的数据
 const favorStore = useFavorStore()
-const itemDate = favorStore?.favorItem
+// const itemDate = storeToRefs(favorStore?.favorItem)
+const { favorItem } = storeToRefs(favorStore)
 
 // 点击返回首页
 const router = useRouter()
