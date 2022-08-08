@@ -1,6 +1,6 @@
 <template>
   <div class="browse">
-    <favor-list-item :itemdate="browseStore"></favor-list-item>
+    <favor-list-item :itemdate="browsetItem"></favor-list-item>
   </div>
 </template>
 
