@@ -10,10 +10,25 @@ const router = createRouter({
     {
       path: "/home",
       component: () => import("@/views/home/home.vue")
+      
     },
     {
       path: "/favor",
-      component: () => import("@/views/favor/favor.vue")
+      component: () => import("@/views/favor/favor.vue"),
+      children: [
+        {
+          path: "/favor",
+          redirect: "/favor/collect"
+        },
+        {
+          path: "/favor/collect",
+          component: () => import("@/views/favor/cpns/favor-collect.vue")
+        },
+        {
+          path: "/favor/browse",
+          component: () => import("@/views/favor/cpns/favor-browse.vue")
+        }
+      ]
     },
     {
       path: "/order",

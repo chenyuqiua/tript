@@ -1,4 +1,4 @@
-import yqRequest from  "../request"
+import yqRequest from "../request"
 
 export function getDetailInfos(houseId) {
   return yqRequest.get({

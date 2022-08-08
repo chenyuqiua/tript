@@ -3,6 +3,8 @@
   --theme-linear-gradient: linear-gradient(90deg, #fa8c1d, #fcaf3f);
 
   --van-search-left-icon-color: var(--primary-color) !important;
+  /* --van-nav-bar-icon-color: var(var(--primary-color));
+  --van-nav-bar-text-color: var(var(--primary-color)); */
 }
 
 body {
