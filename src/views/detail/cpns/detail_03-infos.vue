@@ -83,7 +83,9 @@ defineProps({
     }
     .right {
       .more {
+        width: 80px;
         color: #FF9645;
+        text-align: right;
       }
     }
   }
@@ -100,7 +102,7 @@ defineProps({
       font-weight: 600;
     }
     .right {
-      width: 70px;
+      width: 80px;
       color: #FF9645;
       text-align: right;
     }

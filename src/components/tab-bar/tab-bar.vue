@@ -1,12 +1,12 @@
 <template>
   <div class="tab-bar">
-    <van-tabbar v-model="currentIndex" active-color="#ff9854" placeholder route>
+    <van-tabbar v-model="currentIndex" inactive-color="#666" placeholder route>
       <van-tabbar-item 
         v-for="(item, index) in tabbarData"
         :key="index"
         :to="item.path"
       >
-        <span>{{ item.text }}</span>
+        <span :class="{active: currentIndex === index}">{{ item.text }}</span>
         <template #icon>
           <img v-if="currentIndex !== index" :src="getAssetURL(item.image)" >
           <img v-else :src="getAssetURL(item.imageActive)">
@@ -35,6 +35,13 @@ watch(route, (newValue) => {
 
 <style lang="less" scoped>
 .tab-bar {
+  :deep(.van-tabbar-item--active) {
+    color: #666;
+  }
+  .active {
+    color: var(--primary-color);
+  }
+
    img {
     width: 32px;
     height: 24px;

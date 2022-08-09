@@ -25,6 +25,7 @@
       <detail-notice name="须知" :ref="getSectionsRef" :order-rules="mainPart.dynamicModule.rulesModule.orderRules" />
       <detail-map name="周边" :ref="getSectionsRef" :position="mainPart.dynamicModule.positionModule" />
       <detail-intro :price-intro="mainPart.introductionModule" />
+      <detail-action-bar :current-house="currentHouse" />
     </div>
     <div class="footer">
       <img src="@/assets/img/detail/icon_ensure.png" alt="">
@@ -49,6 +50,7 @@ import DetailMap from './cpns/detail_08-map.vue';
 import DetailIntro from './cpns/detail_09-intro.vue';
 
 import useScroll from '@/hooks/useScroll';
+import DetailActionBar from './cpns/detail_10-action-bar.vue';
 
 const route = useRoute()
 const houseId = route.params.id
@@ -57,6 +59,7 @@ const houseId = route.params.id
 const detailInfos = ref({})
 const mainPart = computed(() => detailInfos.value.mainPart)
 const topInfos = computed(() => mainPart.value.topModule)
+const currentHouse = computed(() => detailInfos?.value?.currentHouse)
  
 getDetailInfos(houseId).then(res => {
   detailInfos.value = res.data

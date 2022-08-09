@@ -36,7 +36,10 @@ const router = createRouter({
     },
     {
       path: "/message",
-      component: () => import("@/views/message/message.vue")
+      component: () => import("@/views/message/message.vue"),
+      meta: {
+        hiddenTabBar: true
+      }
     },
     {
       path: "/city",

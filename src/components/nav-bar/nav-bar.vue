@@ -1,12 +1,20 @@
 <template>
   <div class="nav">
-    <van-nav-bar title="标题" left-text="返回" left-arrow @click-left="goBack" class="title">
+    <van-nav-bar 
+      title="标题" 
+      left-text="主页" 
+      left-arrow 
+      @click-left="goBack" 
+      class="title" 
+      placeholder 
+      fixed
+    >
       <template #title>
         <slot></slot>
       </template>
       <template #right>
         <div class="right-icon"></div>
-      </template> -->
+      </template>
     </van-nav-bar>    
   </div>
 </template>

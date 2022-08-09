@@ -1,6 +1,6 @@
 <template>
   <div class="categories">
-    <template v-for="(item, index) in categories" ::key="item.id">
+    <template v-for="(item, index) in categories" :key="item.id">
       <div class="item">
         <img :src="item.pictureUrl" alt="">
         <span class="text">{{ item.title }}</span>

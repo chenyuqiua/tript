@@ -1,6 +1,6 @@
 <template>
   <div class="collect">
-    <van-tabs v-model:active="active" color="#ff9854">
+    <van-tabs v-model:active="active" color="#ff9854" title-active-color="#fa8c1d">
       <van-tab title="房屋">
         <favor-list-item :itemdate="favorItem"></favor-list-item>
       </van-tab>
